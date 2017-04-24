@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{137DB097-6655-40B0-8195-D572C2ECD374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B4E6A9D1-BA5C-439D-9F19-51075F061CEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTimeWithWords", "src\FunTimeWithWords\FunTimeWithWords.csproj", "{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTimeWithWords.Tests", "test\FunTimeWithWords.Tests\FunTimeWithWords.Tests.csproj", "{3C530031-F31C-420F-9FC8-076934BBFC36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C530031-F31C-420F-9FC8-076934BBFC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C530031-F31C-420F-9FC8-076934BBFC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C530031-F31C-420F-9FC8-076934BBFC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C530031-F31C-420F-9FC8-076934BBFC36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57404ADA-E7C0-4FC7-BAAD-4D9740CBFC30} = {137DB097-6655-40B0-8195-D572C2ECD374}
+		{3C530031-F31C-420F-9FC8-076934BBFC36} = {B4E6A9D1-BA5C-439D-9F19-51075F061CEF}
+	EndGlobalSection
+EndGlobal
