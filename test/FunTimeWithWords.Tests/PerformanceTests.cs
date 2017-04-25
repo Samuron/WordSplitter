@@ -1,21 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace FunTimeWithWords.Tests
 {
     public class PerformanceTests : IClassFixture<PerformanceTestsFixture>
     {
+        private readonly ITestOutputHelper _helper;
         private readonly Stopwatch _stopwatch;
         private readonly GermanWordSplitter _sut;
         private readonly TimeSpan _target;
 
-        public PerformanceTests(PerformanceTestsFixture fixture)
+        public PerformanceTests(PerformanceTestsFixture fixture, ITestOutputHelper helper)
         {
-            _sut = new GermanWordSplitter(GermanDictionary.Default, 3);
+            _helper = helper;
+            _sut = fixture.Splitter;
             _target = TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond / 5);
             _stopwatch = new Stopwatch();
         }
@@ -40,6 +42,8 @@ namespace FunTimeWithWords.Tests
             _sut.Split(word);
             _stopwatch.Stop();
 
+            _helper.WriteLine($"Split {word} in {_stopwatch.Elapsed:c}");
+
             Assert.True(_stopwatch.Elapsed <= _target, $"Could not split {word} in time. Took {_stopwatch.Elapsed:c}");
         }
     }
@@ -48,13 +52,20 @@ namespace FunTimeWithWords.Tests
     {
         public PerformanceTestsFixture()
         {
-            var splitter = new GermanWordSplitter(GermanDictionary.Default, 3);
+            Stopwatch = new Stopwatch();
+            Splitter = new GermanWordSplitter(GermanDictionary.Default, 3);
+            Stopwatch.Start();
             for (var i = 0; i < 100000; i++)
             {
-                splitter.Split("krakenhaus");
-                splitter.Split("volksbank");
-                splitter.Split("weihnachtsmarkt");
+                Splitter.Split("airbus");
+                Splitter.Split("krakenhaus");
+                Splitter.Split("volksbank");
+                Splitter.Split("weihnachtsmarkt");
             }
+            Stopwatch.Stop();
         }
+
+        public GermanWordSplitter Splitter { get; }
+        public Stopwatch Stopwatch { get; }
     }
 }
