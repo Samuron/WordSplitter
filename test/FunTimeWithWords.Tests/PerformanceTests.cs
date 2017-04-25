@@ -19,7 +19,7 @@ namespace FunTimeWithWords.Tests
             _helper = helper;
             _sut = fixture.Splitter;
             _target = TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond / 5);
-            _stopwatch = new Stopwatch();
+            _stopwatch = fixture.Stopwatch;
         }
 
         public static string[][] Cases()
@@ -66,6 +66,7 @@ namespace FunTimeWithWords.Tests
         }
 
         public GermanWordSplitter Splitter { get; }
+
         public Stopwatch Stopwatch { get; }
     }
 }
