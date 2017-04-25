@@ -18,7 +18,7 @@ namespace FunTimeWithWords.Tests
         {
             _helper = helper;
             _sut = fixture.Splitter;
-            _target = TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond / 5);
+            _target = fixture.Target;
             _stopwatch = fixture.Stopwatch;
         }
 
@@ -63,7 +63,10 @@ namespace FunTimeWithWords.Tests
                 Splitter.Split("weihnachtsmarkt");
             }
             Stopwatch.Stop();
+            Target = TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond / 5); // 0.2 ms
         }
+
+        public TimeSpan Target { get; }
 
         public GermanWordSplitter Splitter { get; }
 
